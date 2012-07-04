@@ -269,6 +269,21 @@ class Ckan_client
 			$this->resources['package_register'], 
 			$data);
 	}
+	
+	/**
+	 * @access	public
+	 * @param	string	Package
+	 * @return	bool
+	 * @link	http://knowledgeforge.net/ckan/doc/ckan/api.html#model-api-data-formats
+	 * @since	Version 0.1.0
+	 */
+	public function post_package_update($data)
+	{
+		$json = json_decode($data, TRUE);
+		return $this->make_request('POST', 
+			$this->resources['package_register'] . "/" . $json['name'], 
+			$data);
+	}
 
 	// Package entity resouce
 
